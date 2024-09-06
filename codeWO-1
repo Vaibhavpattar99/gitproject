@@ -1,0 +1,5 @@
+<button onclick="myFunction()">Click me</button>
+  div.addEventListener("contextmenu", (e) => {e.preventDefault()});
+<img onmouseenter="bigImg(this)" src="smiley.gif" alt="Smiley">
+  <img onmouseleave="normalImg(this)" src="smiley.gif" alt="Smiley">
+  <img onmouseout="normalImg(this)" src="smiley.gif" alt="Smiley">
