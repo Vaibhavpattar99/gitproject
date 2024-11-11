@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click for Study</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="text"], input[type="email"], input[type="password"], select, input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Click for Study</h1>
+
+    <!-- User Creation Form -->
+    <form id="userForm">
+        <h2>User Information</h2>
+        <label for="username">Name:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Create User</button>
+    </form>
+
+    <!-- Dropdown and File Upload Section -->
+    <form id="itemForm">
+        <h2>Select and Add Item</h2>
+
+        <!-- Dropdown for Item Selection -->
+        <label for="itemSelect">Select Item:</label>
+        <select id="itemSelect" name="itemSelect" required>
+            <option value="">Choose an item</option>
+            <option value="item1">Item 1</option>
+            <option value="item2">Item 2</option>
+            <option value="item3">Item 3</option>
+        </select>
+
+        <!-- Additional Input Based on Dropdown -->
+        <div id="additionalItem" style="display:none;">
+            <label for="uploadFile">Upload Item from Local System:</label>
+            <input type="file" id="uploadFile" name="uploadFile">
+        </div>
+
+        <!-- Button to Submit Item Selection -->
+        <button type="submit">Add Item</button>
+    </form>
+</div>
+
+<script>
+    // Handle item dropdown change
+    document.getElementById('itemSelect').addEventListener('change', function() {
+        var selectedItem = this.value;
+        var additionalItemSection = document.getElementById('additionalItem');
+
+        // Show file upload if "item3" is selected
+        if (selectedItem === 'item3') {
+            additionalItemSection.style.display = 'block';
+        } else {
+            additionalItemSection.style.display = 'none';
+        }
+    });
+
+    // Handle form submission (just an alert for now)
+    document.getElementById('userForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('User Created Successfully!');
+    });
+
+    document.getElementById('itemForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Item Added Successfully!');
+    });
+</script>
+
+</body>
+</html>
+
